@@ -36,3 +36,22 @@ public class Solution {
         return result;
     }
 }
+
+//ver. 3
+public class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        int[] result=new int[2];
+        Map<Integer,Integer> myMap=new HashMap<Integer,Integer>();
+        for(int i=0;i<numbers.length;i++)
+            myMap.put(numbers[i],i);
+        for(int j=0;j<numbers.length;j++)
+            //myMap.remove(numbers[j]);
+            if(myMap.containsKey(target-numbers[j])){
+                    result[0]=j+1;
+                    result[1]=myMap.get(target-numbers[j])+1;
+                    return result;
+            }
+        return result;
+    }
+}
