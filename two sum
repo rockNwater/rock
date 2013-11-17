@@ -1,3 +1,4 @@
+//ver 1
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
@@ -10,6 +11,28 @@ public class Solution {
                     return result;
                 }
             }
+        return result;
+    }
+}
+
+//ver 2
+public class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        int[] result=new int[2];
+        Map<Integer,Integer> myMap=new HashMap<Integer,Integer>();
+        for(int i=0;i<numbers.length;i++)
+            myMap.put(i,numbers[i]);
+        for(int j=0;j<numbers.length;j++){
+            myMap.remove(j);
+            if(myMap.containsValue(target-numbers[j]))
+                for(int k=j+1; k<numbers.length;k++)
+                    if(numbers[k]==target-numbers[j]){
+                        result[0]=j+1;
+                        result[1]=k+1;
+                        return result;
+                    }
+        }
         return result;
     }
 }
