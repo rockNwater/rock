@@ -46,7 +46,6 @@ public class Solution {
         for(int i=0;i<numbers.length;i++)
             myMap.put(numbers[i],i);
         for(int j=0;j<numbers.length;j++)
-            //myMap.remove(numbers[j]);
             if(myMap.containsKey(target-numbers[j])){
                     result[0]=j+1;
                     result[1]=myMap.get(target-numbers[j])+1;
