@@ -2,7 +2,7 @@ public class Solution {
     public int removeDuplicates(int[] A) {
         if(A.length==0)
             return 0;
-         //currently known maximum index of non-duplicate elements
+         //currently known maximum index of no more than twice duplicate elements
          int currentMaxIndex=0;
          //dup is used to judge if the element the 3rd duplicate 
          //of the element at currentMaxIndex?
