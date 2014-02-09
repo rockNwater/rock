@@ -1,0 +1,18 @@
+public class Solution {
+    public int removeDuplicates(int[] A) {
+        if(A.length==0)
+            return 0;
+         //currently known maximum index of non-duplicate elements
+         int currentMaxIndex=0;
+         //dup is used to judge if the element the 3rd duplicate 
+         //of the element at currentMaxIndex?
+         boolean dup=false;
+         for(int i=1;i<A.length;i++)
+            if(A[currentMaxIndex]!=A[i]||!dup){
+                dup=(A[currentMaxIndex]==A[i]);//true if finding a duplicate element
+                A[++currentMaxIndex]=A[i];
+            }    
+        
+         return currentMaxIndex+1;
+    }
+}
