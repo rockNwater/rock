@@ -1,3 +1,18 @@
+//ver. 3
+public class Solution {
+    public int removeDuplicates(int[] A) {
+        if(A.length==0)
+            return 0;
+        //currently known maximum index of non-duplicate elements
+        int currentMaxIndex=0;
+        for(int i=1;i<A.length;i++)
+            if(A[currentMaxIndex]!=A[i])//new non-duplicate element found
+               A[++currentMaxIndex]=A[i];
+        
+        return currentMaxIndex+1;
+    }
+}
+
 //ver. 2
 public class Solution {
     public int removeDuplicates(int[] A) {
