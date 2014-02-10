@@ -1,3 +1,18 @@
+//Version 3
+public class Solution {
+    public int removeDuplicates(int[] A) {
+        if(A.length<3)
+            return A.length;
+        //currently known maximum index of no-more-than-twice-duplicate elements
+        int currentMaxIndex=1;
+        for(int i=2;i<A.length;i++)
+            //as long as the element is not equal to 
+            //A[currentMaxIndex] or A[currentMaxIndex-1], it is OK.
+            if(A[i]!=A[currentMaxIndex] || A[i]!=A[currentMaxIndex-1])
+                A[++currentMaxIndex]=A[i];
+        return currentMaxIndex+1;
+    }
+}
 //Version 2
 public class Solution {
     public int removeDuplicates(int[] A) {
