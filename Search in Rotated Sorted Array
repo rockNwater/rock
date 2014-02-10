@@ -8,12 +8,14 @@ public class Solution {
           if(A[0]==target)
               return index;
       //divide the arrary into two, at least one is sorted
-      //check if the target in the range of the sorted arrary
+      //we can always determine that the target is NOT in one half 
+      //of arrary, then search the other half. repeat the recursive
+      //procedure make the algorithm lg(n) 
       if(A.length>1){
           int[] A1=Arrays.copyOfRange(A,0,A.length/2);
           int[] A2=Arrays.copyOfRange(A,A.length/2, A.length);
-          if((A1[0]<=target&&target<=A1[A1.length-1]) ||
-              (A2[0]<=A2[A2.length-1]&&(target<A2[0]||target>A2[A2.length-1])))
+          if((A1[0]<=target&&target<=A1[A1.length-1]) || 
+              ((A2[0]<=A2[A2.length-1]&&(target<A2[0]||target>A2[A2.length-1]))))
               return search(A1, target);
           else{
               index+=A1.length;
