@@ -1,3 +1,28 @@
+//Version 2 -- time efficiency: lg(n)
+public class Solution {
+  public int index=0;
+  public int search(int[] A, int target) {
+      if(A.length==0)
+          return -1;
+      if(A.length==1)
+          if(A[0]==target)
+              return index;
+      //divide the arrary into two, at least one is sorted
+      //check if the target in the range of the sorted arrary
+      if(A.length>1){
+          int[] A1=Arrays.copyOfRange(A,0,A.length/2);
+          int[] A2=Arrays.copyOfRange(A,A.length/2, A.length);
+          if((A1[0]<=target&&target<=A1[A1.length-1]) ||
+              (A2[0]<=A2[A2.length-1]&&(target<A2[0]||target>A2[A2.length-1])))
+              return search(A1, target);
+          else{
+              index+=A1.length;
+              return search(A2, target);
+          }
+      }
+      return -1;
+  }
+}
 //Version 1 -- time efficiency: n
 public class Solution {
     public int search(int[] A, int target) {
