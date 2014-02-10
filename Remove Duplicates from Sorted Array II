@@ -7,7 +7,7 @@ public class Solution {
         int currentMaxIndex=1;
         for(int i=2;i<A.length;i++)
             //as long as the element is not equal to 
-            //A[currentMaxIndex] or A[currentMaxIndex-1], it is OK.
+            //either A[currentMaxIndex] or A[currentMaxIndex-1], it is OK.
             if(A[i]!=A[currentMaxIndex] || A[i]!=A[currentMaxIndex-1])
                 A[++currentMaxIndex]=A[i];
         return currentMaxIndex+1;
