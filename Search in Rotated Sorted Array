@@ -1,4 +1,35 @@
-//Version 2 -- time efficiency: lg(n)
+//Version 3 -- time efficiency: lg(n); space:O(1)
+public class Solution {
+  public int search(int[] A, int target) {
+    int l=0;//lowerBound of the search range
+    int u=A.length-1;//upperBound of the search range
+    int mid=(l+u)/2;//middle index between l and u
+      
+    if(A[mid]==target)
+        return mid;
+    //for each iteration, we divide the arrary into two halves. and 
+    // we can always determine that the target is NOT in one of them.
+    //therefore, we search the other half. 
+    while(l<u){
+        if(A[l]<=A[mid])
+            if(A[l]<=target&&target<=A[mid])
+                u=mid;
+            else
+                l=mid+1;
+        else
+            if(A[mid+1]<=target&&target<=A[u])
+                l=mid+1;
+            else
+                u=mid;
+        mid=(l+u)/2;
+
+        if(A[mid]==target)
+            return mid;        
+    }
+    return -1;    
+  }
+}
+//Version 2 -- time efficiency: lg(n); space:O(n)
 public class Solution {
   public int index=0;
   public int search(int[] A, int target) {
