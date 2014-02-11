@@ -2,7 +2,7 @@
 public class Solution {
   public int index=0;
   public int search(int[] A, int target) {
-      if(A.length==0)
+      if(A.length==0)//this case is not necessary
           return -1;
       if(A.length==1)
           if(A[0]==target)
