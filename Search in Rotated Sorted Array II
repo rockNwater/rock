@@ -1,0 +1,37 @@
+//Version 1 -- time efficiency: n
+public class Solution {
+    public boolean search(int[] A, int target) {
+    int l=0;//lowerBound of the search range
+    int u=A.length-1;//upperBound of the search range
+    int mid=(l+u)/2;//middle index between l and u
+      
+    if(A[mid]==target)
+        return true;
+    //for each iteration, we divide the arrary into two halves. Next  
+    // we remove from lower and upper bounds those that are duplicates
+    //of elements at mid or mid+1. Then we can always determine that 
+    //the target is NOT in one of the two arrays.
+    //therefore, we search the other one. 
+    while(l<u){
+        while(A[l]==A[mid]&&l<mid)
+            l++;
+        while(A[mid+1]==A[u]&&(mid+1)<u)
+            u--;
+        if(A[l]<=A[mid])
+            if(A[l]<=target&&target<=A[mid])
+                u=mid;
+            else
+                l=mid+1;
+        else
+            if(A[mid+1]<=target&&target<=A[u])
+                l=mid+1;
+            else
+                u=mid;
+        mid=(l+u)/2;
+
+        if(A[mid]==target)
+            return true;        
+    }
+    return false;    
+    }
+}
