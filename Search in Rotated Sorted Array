@@ -14,6 +14,8 @@ public class Solution {
       if(A.length>1){
           int[] A1=Arrays.copyOfRange(A,0,A.length/2);
           int[] A2=Arrays.copyOfRange(A,A.length/2, A.length);
+          //the below condition means that target is either definitely 
+          //in  1st half, or difinitely not in 2nd half of the array
           if((A1[0]<=target&&target<=A1[A1.length-1]) || 
               ((A2[0]<=A2[A2.length-1]&&(target<A2[0]||target>A2[A2.length-1]))))
               return search(A1, target);
